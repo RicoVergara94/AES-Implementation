@@ -58,6 +58,34 @@ public class Block {
 
     }
 
+    public static List<Byte> circularRotationToRight(List<Byte> byteList, int numberOfRotations) {
+
+        for(int rotations = 0; rotations < numberOfRotations; rotations++) {
+            int size = byteList.size();
+            Byte temp = byteList.get(size - 1);
+            for(int i = size - 1; i > 0; i--) {
+                byteList.set(i, byteList.get(i - 1));
+            }
+            byteList.set(0, temp);
+
+        }
+        return byteList;
+    }
+
+    public static List<Byte> circularRotationToLeft(List<Byte> byteList, int numberOfRotations) {
+
+        for(int rotations = 0; rotations < numberOfRotations; rotations++) {
+            int size = byteList.size();
+            Byte temp = byteList.get(0);
+            for(int i = 0; i < size - 1; i++) {
+                byteList.set(i, byteList.get(i + 1));
+            }
+            byteList.set(size-1, temp);
+
+        }
+        return byteList;
+    }
+
 
     public List<List<Byte>> getBlock() {
         return block;
